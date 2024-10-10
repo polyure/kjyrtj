@@ -9,7 +9,7 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 
-KJYR_DATE = datetime(2024, 10, 16, 17, 0, 0)
+KJYR_DATE = datetime(2024, 11, 16, 17, 0, 0).date()
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
@@ -19,7 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Olen KJYR-tj-botti.")
 
 async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    tj = KJYR_DATE- datetime.now()
+    tj = KJYR_DATE- datetime.now().date()
     tj = str(tj.days)
     text = "KJYR-TJ: " + tj
     await update.effective_message.reply_text(text)
