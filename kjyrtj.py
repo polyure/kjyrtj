@@ -19,9 +19,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Olen KJYR-tj-botti.")
 
 async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    tj = KJYR_DATE- datetime.now().date()
-    tj = str(tj.days)
-    text = "KJYR-TJ: " + tj
+    tj = KJYR_DATE - datetime.now().date()
+    if tj.days == 0:
+        text = "KJYR-TJ: 0, KJYR is today!"
+    elif tj.days == -1 or tj == -2:
+        text = "KJYR is underway, stop asking and enjoy the cruise!"
+    elif tj.days < -2:
+        text = "Thank you everyone! See you again at next year's KJYR."
+    else:
+        tj = str(tj.days)
+        text = "KJYR-TJ: " + tj
     await update.effective_message.reply_text(text)
     
     
