@@ -25,7 +25,7 @@ async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif tj.days == -1:
         text = "KJYR is underway, stop asking and enjoy the cruise!"
     elif tj.days < -1:
-        text = "Thank you everyone! See you again at next year's KJYR."
+        text = "Thank you everyone! See you again at next KJYR."
     else:
         tj = str(tj.days)
         text = "KJYR-TJ: " + tj
