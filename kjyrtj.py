@@ -1,6 +1,6 @@
 import logging
 from telegram import Update
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Defaults
 from datetime import datetime
 from dotenv import load_dotenv
 import os
@@ -9,7 +9,9 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 
-KJYR_DATE = datetime(2024, 11, 16, 17, 0, 0).date()
+df = Defaults(block=False)
+
+KJYR_DATE = datetime(2025, 10, 25, 17, 0, 0).date()
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
@@ -33,7 +35,7 @@ async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     
 if __name__ == '__main__':
-    application = ApplicationBuilder().token(TOKEN).build()
+    application = ApplicationBuilder().token(TOKEN).defaults(df).build()
     
     start_handler = CommandHandler('start', start)
     
