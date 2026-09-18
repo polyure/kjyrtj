@@ -11,7 +11,7 @@ TOKEN = os.getenv("TOKEN")
 
 df = Defaults(block=False)
 
-KJYR_DATE = datetime(2025, 10, 25, 17, 0, 0).date()
+KJYR_DATE = datetime(2026, 10, 23, 17, 0, 0).date()
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
