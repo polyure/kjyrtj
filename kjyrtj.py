@@ -33,6 +33,9 @@ async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "KJYR-TJ: " + tj
     await update.effective_message.reply_text(text)
     
+async def roll(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_animation(chat_id=update.effective_chat.id, animation="rickroll-roll.mp4")
+    
     
 if __name__ == '__main__':
     application = ApplicationBuilder().token(TOKEN).defaults(df).build()
