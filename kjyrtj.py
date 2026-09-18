@@ -18,7 +18,7 @@ logging.basicConfig(
 )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Olen KJYR-tj-botti.")
+    await context.bot.send_animation(chat_id=update.effective_chat.id, animation="rickroll-roll.mp4")
 
 async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
     tj = KJYR_DATE - datetime.now().date()
@@ -33,8 +33,6 @@ async def count_days(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = "KJYR-TJ: " + tj
     await update.effective_message.reply_text(text)
     
-async def roll(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_animation(chat_id=update.effective_chat.id, animation="rickroll-roll.mp4")
     
     
 if __name__ == '__main__':
@@ -52,6 +50,5 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler("kjyriimme", count_days))
     application.add_handler(CommandHandler("kjyrcountdown", count_days))
     application.add_handler(CommandHandler("KauankoJaljellaYhteisRisteilyyn", count_days))
-    application.add_handler(CommandHandler("roll", roll))
     
     application.run_polling()
