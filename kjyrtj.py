@@ -52,5 +52,6 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler("kjyriimme", count_days))
     application.add_handler(CommandHandler("kjyrcountdown", count_days))
     application.add_handler(CommandHandler("KauankoJaljellaYhteisRisteilyyn", count_days))
+    application.add_handler(CommandHandler("roll", roll))
     
     application.run_polling()
